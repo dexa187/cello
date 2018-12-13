@@ -65,3 +65,10 @@
   with_items:
     - { src: "{{ cluster.public_key_file }}", target: "{{ gopath }}/id_rsa.pub" }
     - { src: "{{ cluster.private_key_file }}", target: "{{ gopath }}/id_rsa" }
+
+- name: Set Splunk logging
+  template:
+    src: ../templates/splunk_logging.j2
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
